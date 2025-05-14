@@ -6,7 +6,6 @@ Base = declarative_base()
 
 class Rastreio(Base):
     __tablename__ = 'RASTREIO'.lower()
-    __table_args__ = {'schema': 'OHRA'}
     id: Integer = Column('id', Integer, primary_key=True, autoincrement=True, nullable=False)
     id_usuario: Integer = Column('id_usuario', Integer)
     id_pergunta: Integer = Column('id_pergunta', Integer)

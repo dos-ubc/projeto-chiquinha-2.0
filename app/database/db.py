@@ -5,8 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
-
-url = "postgresql+psycopg2://admin:admin#0993@host:5432/OHRA"
+url = "postgresql://admin:admin%400993@db:5432/postgres"
 
 engine = create_engine(url, echo=True)
 

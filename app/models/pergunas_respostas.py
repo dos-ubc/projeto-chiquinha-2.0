@@ -8,7 +8,6 @@ Base = declarative_base()
 
 class PeguntasRespostas(Base):
     __tablename__ = 'PERGUNTAS_RESPOSTAS'.lower()
-    __table_args__ = {'schema': 'OHRA'}
     id: Integer = Column('id', Integer, primary_key=True, autoincrement=True, nullable=False)
     pergunta: String = Column('pergunta', String(200))
     resposta: String = Column('resposta', String(200))
