@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+
+
+  api:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql://admin:admin%400993@db:5432/postgres
+      - OLLAMA_API=http://ollama:11434
+    depends_on:
+      - db
+      - ollama
+    command: uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin@0993
+      POSTGRES_DB: OHRA
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: always
+
+volumes:
+  postgres_data:
+  ollama_data:
