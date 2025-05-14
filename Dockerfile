@@ -1,7 +1,10 @@
-FROM ollama/ollama:latest
+FROM python:3.12-slim
 
-RUN ollama pull llama3.3
-EXPOSE 11434
+WORKDIR /app
 
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD /bin/sh -c "ollama serve && ollama pull llama3.1"
+COPY . /app
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
