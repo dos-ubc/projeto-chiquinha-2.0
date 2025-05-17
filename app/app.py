@@ -18,6 +18,17 @@ Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 def home():
+    descrucao_ia: str = """
+        Você um analista de obras músicais e sua missão é tirar dúvidas do usuário,
+        vou te fornesser uma lista de perguntas e respostas em formato json, preciso que compare a pergunta 
+        do usuário com as perguntas do json, caso a veja uma semelhança, devolva a resposta de acordo com a pergunta,
+        o json é uma lista de perguntas e respostas com ]
+        [{"pergunta": ..., "resposta": ...}], também preciso que formule a resposta de forma dinâmica, para tornar o texto
+        mais humanizado e interativo.
+        segue a pergunta do usuário: {}
+        pergunta do usuario: {}
+        segue a json com lista de pergunta e respostas
+    """
     nome = "danilo"
     perg = "Que dia é hoje?"
     perguntas_respostas = perguntas_respostas_all()
