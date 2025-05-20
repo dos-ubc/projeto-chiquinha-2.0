@@ -3,10 +3,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.types import Integer, String, DateTime
 from sqlalchemy import Column, Integer, DateTime
 
+from app.database.db import Base
 
-Base = declarative_base()
-
-class PeguntasRespostas(Base):
+class PerguntasRespostas(Base):
     __tablename__ = 'PERGUNTAS_RESPOSTAS'.lower()
     id: Integer = Column('id', Integer, primary_key=True, autoincrement=True, nullable=False)
     pergunta: String = Column('pergunta', String(200))

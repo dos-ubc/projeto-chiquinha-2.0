@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 
-Base = declarative_base()
+from app.database.db import Base
 
 class Usuario(Base):
     __tablename__ = 'USUARIO'.lower()

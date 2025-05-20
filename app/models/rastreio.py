@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, DateTime
 
-Base = declarative_base()
+from app.database.db import Base
 
 class Rastreio(Base):
     __tablename__ = 'RASTREIO'.lower()

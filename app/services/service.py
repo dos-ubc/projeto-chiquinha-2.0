@@ -1,9 +1,10 @@
-import ollama
+from ollama import Client
 
-ollama.base_url = "http://localhost:11434"
-def  ollama_con(mensagem: str):
-    model: str = 'llama3'
-    resposta = ollama.chat(
+client = Client(host="http://ollama:11434")
+
+def ollama_con(mensagem: str):
+    model = 'phi4-mini:3.8b'
+    resposta = client.chat(
         model=model,
         messages=[
             {
