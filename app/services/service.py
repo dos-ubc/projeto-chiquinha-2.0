@@ -3,7 +3,7 @@ from ollama import Client
 client = Client(host="http://ollama:11434")
 
 def ollama_con(mensagem: str):
-    model = 'phi4-mini:3.8b'
+    model = 'mistral:7b'
     resposta = client.chat(
         model=model,
         messages=[
