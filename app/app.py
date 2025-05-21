@@ -15,7 +15,7 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 @app.get("/")
-def home():
+def main():
     descrucao_ia: str = """
         Você é um analista de obras musicais e sua missão é tirar dúvidas do usuário.
         
