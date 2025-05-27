@@ -10,7 +10,7 @@ from app.crud.perguntas_respostas import get_all as perguntas_respostas_all
 from app.crud.perguntas_respostas import add_pergunta_resposta
 from app.crud.rastreio import add_rastreio
 from app.crud.usuario import add_usuario
-from app.services.service import ollama_con
+from app.services.service import gemini_con
 
 app = FastAPI()
 
@@ -47,7 +47,7 @@ def main(dados_pergunta: PerguntaBody):
         pergunta_e_respostas_banco=resposta
     )
 
-    resposta = ollama_con(texto)
+    resposta = gemini_con(texto)
     return {"resposta": resposta}
 
 @app.post("/cadastro-pergunta-resposta")
